@@ -1,0 +1,154 @@
+/* General Styles */
+.page-container {
+    display: flex;
+    height: 100vh;
+}
+
+.nav-button i {
+    margin-right: 0.5rem;
+}
+
+/* Header styles */
+.header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.header-left h2 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-container i {
+    position: absolute;
+    left: 0.5rem;
+    color: #6B7280;
+}
+
+.search-container input {
+    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* Content styles */
+.content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.create-button {
+    display: flex;
+    align-items: center;
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.create-button:hover {
+    background-color: #2563eb;
+}
+
+.create-button i {
+    margin-right: 0.5rem;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table th,
+.report-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.report-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.report-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .search-container {
+        display: none;
+    }
+}

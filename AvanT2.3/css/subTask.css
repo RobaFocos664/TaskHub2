@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.subtask-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.subtask-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.subtask-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.subtask-progress {
+    margin-bottom: 20px;
+}
+
+.progress-text {
+    font-size: 14px;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.progress-fill {
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #3B82F6, #2563EB);
+}
+
+.estimated-time {
+    font-size: 14px;
+    color: #666;
+}
+
+.subtask-description {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.subtask-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(to bottom right, #3B82F6, #2563EB);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtask-button:hover {
+    background-color: #8b8ed4;
+}
+
+.subtask-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 12px;
+    color: #666;
+}
+
+.footer-link {
+    color: #4F46E5;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-text {
+    color: #999;
+}

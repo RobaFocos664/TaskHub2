@@ -1,0 +1,121 @@
+.container {
+    margin: 0 auto;
+    max-width: 95%;
+}
+
+.scroll-area {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.space-y-6 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.space-y-6 > * {
+    flex: 1 1 calc(50% - 2rem); /* Ajusta a 50% en pantallas grandes */
+}
+
+/* General Card Styles */
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra en los bordes */
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.card-title a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: #0056b3; /* Color de resaltado para enlaces */
+}
+
+.card-content {
+    color: #555;
+}
+
+.card-description {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Icon Colors */
+.icon-blue {
+    color: #007bff;
+    margin-right: 8px;
+}
+
+.icon-indigo {
+    color: #6610f2;
+    margin-right: 8px;
+}
+
+.icon-green {
+    color: #28a745;
+    margin-right: 8px;
+}
+
+.area-card, .team-card {
+    padding-left: 16px;
+    margin-left: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra en áreas y equipos */
+}
+
+/* Team Member Badge Styling */
+.team-member {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+}
+
+.team-member span {
+    font-size: 0.9rem;
+}
+
+.badge {
+    background-color: #e9ecef;
+    border-radius: 12px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    color: #495057;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 1400px) {
+    .card, .area-card, .team-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-header, .team-member {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+
+
+
+
