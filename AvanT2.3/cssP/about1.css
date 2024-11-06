@@ -1,1 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
 
+header {
+    background-color: #1a73e8;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    padding: 2rem;
+}
+
+.teams-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.team-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.team-header {
+    background-color: #f1f3f4;
+    padding: 1rem;
+    border-bottom: 1px solid #dadce0;
+}
+
+.team-name {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #202124;
+}
+
+.team-members {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dadce0;
+}
+
+.team-member:last-child {
+    border-bottom: none;
+}
+
+.member-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background-color: #dadce0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #5f6368;
+}
+
+.member-name {
+    font-size: 1rem;
+    color: #202124;
+}
+
+@media (min-width: 768px) {
+    .teams-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .teams-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
