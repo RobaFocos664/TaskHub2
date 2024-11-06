@@ -13,7 +13,7 @@ body {
     position: relative;
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow:auto;
     color: black;
 }
 
@@ -317,92 +317,552 @@ li {
     }
 }
 
-/* Barra superior */
-.top-bar {
-    width: 100%;
-    height: 50px;
-    background-color: #4F46E5;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    margin-bottom: 100px;
+/* HASTA AQUI TERMINA EL SLIDEBAR */
+/* *************************************** */
+/* TASK INTERFACE */
+
+/* Dashboard Content Styles */
+.dashboard-content {
+    padding: 1.5rem;
 }
 
-.top-bar .username {
-    margin-right: 15px;
-    font-size: 16px;
+.stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.stat-card.blue {
+    background: linear-gradient(to bottom right, #3B82F6, #2563EB);
+}
+
+.stat-card.purple {
+    background: linear-gradient(to bottom right, #8B5CF6, #6D28D9);
+}
+
+.stat-card.green {
+    background: linear-gradient(to bottom right, #10B981, #059669);
+}
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.stat-header h3 {
+    font-size: 0.875rem;
     font-weight: 500;
 }
 
-.top-bar .user-image {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.sidebar {
-    margin-top: 50px;
+.stat-description {
+    font-size: 0.75rem;
+    opacity: 0.8;
 }
 
-.main-content {
-    padding-top: 60px;
+.task-table-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.user-menu {
-    position: relative;
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #E5E7EB;
 }
 
-.user-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 2px solid #2563EB;
+.card-header h2 {
+    font-size: 1.25rem;
+    color: #111827;
+}
+
+.card-header p {
+    font-size: 0.875rem;
+    color: #6B7280;
+}
+
+.card-actions {
+    display: flex;
+    gap: 17px;
+}
+
+.create-task-button {
+    background-color: #2563EB;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.create-task-button i {
+    margin-right: 0.25rem;
+}
+
+.icon-button {
+    background: none;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
     cursor: pointer;
 }
 
-.dropdown-content {
+.task-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.task-table th,
+.task-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.task-table th {
+    font-weight: 600;
+    color: #374151;
+    background-color: #F9FAFB;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge.in-progress {
+    background-color: #DBEAFE;
+    color: #2563EB;
+}
+
+.badge.pending {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.badge.finished {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+.badge.high {
+    background-color: #FEE2E2;
+    color: #DC2626;
+}
+
+.badge.medium {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+.badge.low {
+    background-color: #E0E7FF;
+    color: #4F46E5;
+}
+
+.progress-bar {
+    width: 100px;
+    height: 6px;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background-color: #2563EB;
+}
+
+.progress-text {
+    font-size: 0.75rem;
+    color: #6B7280;
+    margin-left: 0.5rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        display: none;
+    }
+
+    .main-content {
+        width: 100%;
+    }
+
+    .menu-button {
+        display: block;
+    }
+
+    .stat-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-actions {
+        margin-top: 1rem;
+    }
+
+    .task-table {
+        font-size: 0.875rem;
+    }
+
+    .task-table th,
+    .task-table td {
+        padding: 0.75rem;
+    }
+}
+
+/*------CALENDARIO-------*/
+.hidden {
     display: none;
-    position: absolute;
-    right: 0;
-    background-color: white;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    border-radius: 4px;
-    padding: 0.5rem 0;
 }
 
-.user-menu:hover .dropdown-content {
-    display: block;
+.calendar {
+    background-color: #ffffff; /* Fondo suave para el calendario */
+    padding: 20px; /* Espaciado alrededor del calendario */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-top: 20px;
+    max-height: 1120px;
+    overflow: hidden;
+    position: relative;
 }
 
-.dropdown-content h3 {
-    color: black;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
-.dropdown-content hr {
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     border: none;
-    border-top: 1px solid #E5E7EB;
-    margin: 0.5rem 0;
+    border-radius: 5px;
+    background-color: #007bff; /* Color de fondo para los botones */
+    color: rgb(0, 0, 0); /* Color del texto del botón */
+    transition: background-color 0.3s; /* Efecto de transición */
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
+button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+/* Calendar grid */
+
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+}
+
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1170px); /* Cambia a 1fr para 7 columnas */
+    grid-template-rows: repeat(6, 1000px); /* 6 filas para abarcar todos los días del mes */
+    margin-top: 20px;
+    text-align: center;
+    gap: 5px;
+    margin-bottom: 40px;
+    margin-left: 80px;
+}
+
+.day {
+    padding: 15px;
+    border-bottom: 1px solid black; /* Línea en la parte inferior */
+    border-right: 1px solid black;  /* Línea a la derecha */
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    text-align: center;
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20xp
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-around;
+    font-weight: bold;
+    padding: 10px 0; /* Añade espacio arriba y abajo para separación */
+    border-bottom: 1px solid #000; /* Opcional: agregar una línea debajo para separar del resto del calendario */
+}
+
+.day-name {
+    flex: 1;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+    padding: 5px;
+    box-sizing: border-box; /* Asegura que el padding no altere el ancho */
+}
+
+.day-today {
+    background-color: #3c4f8c;
+    color: white;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+.subtarea-container {
+    position: relative; /* Permite la posición absoluta del hijo */
+    display: flex; /* Usar flexbox para alinear elementos */
+    align-items: center; /* Centrar verticalmente el botón y la línea */
+    margin-top: 5px; /* Espacio arriba del contenedor */
+}
+
+.subtarea-button {
+    background-color: #23292d; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px 10px; /* Espaciado interno */
+    cursor: pointer; /* Cambiar el cursor al pasar el ratón */
+    margin-left: 10px; /* Espacio entre la línea y el botón */
+    position: relative; /* Asegúrate de que el botón tenga posición relativa */
+}
+
+.line {
+    position: absolute; /* Posicionar absolutamente en relación al contenedor */
+    left: 0; /* Alinear a la izquierda del contenedor */
+    top: 50%; /* Centrar verticalmente la línea */
+    transform: translateY(-50%); /* Centrar verticalmente utilizando transform */
+    width: 100px; /* Ancho de la línea */
+    height: 47.8px; /* Altura de la línea */
+    background-color: #CD5A91; /* Color de la línea */
+    border-radius: 2px; /* Bordes redondeados de la línea */
+}
+
+.subtarea-button:hover {
+    background-color: #45a049; /* Color de fondo al pasar el ratón */
+}
+.content-hidden .dashboard-content {
+    display: none;
+}
+
+/* Mostrar algo mientras está oculto el contenido */
+.content-hidden #moved-content::before {
     display: block;
+    text-align: center;
+    margin: 20px;
+    font-size: 1.5rem;
+    color: gray;
 }
 
-.dropdown-content a:hover {
-    background-color: #F3F4F6;
+/* Cuadro blanco que aparecerá cuando el contenido esté oculto */
+.white-box::before{
+    display: block;
+    flex-direction: row;/* Por defecto no se muestra */
 }
 
+.content-hidden .white-box {
+    display: flex;
+    background-color: white; /* Aplica el fondo blanco */
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 26px;
+    margin-right: 26px;
+    flex-direction: column;
+}
+
+.white-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.white-box p {
+    font-size: 16px;
+    color: #555;
+}
+
+.modal1 {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegúrate de que sea superior al resto del contenido */
+    left: 0;
+    top: 0;
+    width: 100vw; /* Cambia a 100vw y 100vh para asegurar toda la pantalla */
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+}
+
+/* Estilo del contenido de la ventana modal */
+.modal-content1 {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Estilos para los modal de crear tareas*/
+.modal-team-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    height: 65%;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 5px;
+    position: relative;
+    overflow-y: auto;
+}
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* Estilos del modal */
+.modal {
+    display: none;
+    /* Escondido por defecto */
+    position: fixed;
+    /* Fijo en la pantalla */
+    z-index: 1000;
+    /* Asegúrate de que esté por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Ancho completo */
+    height: 115%;
+    /* Alto completo */
+    overflow: auto;
+    /* Permitir desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    /* Fondo blanco */
+    margin: 15% auto;
+    /* Margen superior y centrado */
+    padding: 20px;
+    /* Espaciado interno */
+    border: 1px solid #888;
+    /* Borde */
+    width: 25%;
+    /* Ancho del modal */
+    max-height: 400%¡;
+    /* Altura máxima del modal */
+    overflow-y: auto;
+    /* Permitir desplazamiento vertical */
+    text-align: center;
+}
+
+.close {
+    color: #333;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    /* Transición suave al cambiar el color */
+}
+
+.close:hover {
+    color: #ff0000;
+    /* Cambia el color al pasar el cursor */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    /* Ancho completo */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #007bff;
+    /* Color del borde al enfocarse */
+    outline: none;
+}
+
+
+.bottonCreateTask {
+    background-color: #007bff;
+    /* Color principal */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    /* Color al pasar el cursor */
+}
+
+/* END OF THE TASK INTERFACE */
+/* ************************* */
